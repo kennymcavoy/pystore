@@ -1,6 +1,10 @@
 Change Log
 ===========
 
+0.1.25
+------
+- Add sorting to append
+
 0.1.24
 ------
 - Replace default parquet engine, deprecate Fastparquet, start using as default pyarrow
