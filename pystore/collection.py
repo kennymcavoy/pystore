@@ -176,12 +176,13 @@ class Collection(object):
             return
 
         if data.index.name == "":
-            data.index.name = "index"
+            data.index.name = "index" # change to match old index name, or update? thinking match or error
 
         # combine old dataframe with new
         current = self.item(item)
         new = dd.from_pandas(data, npartitions=1)
-        combined = dd.concat([current.data, new])
+        combined = dd.concat([current.data, new]) # working on sorting
+        # combined.sort_values('date').compute() # this sorting works i think but not sure if compute here
 
         if npartitions is None:
             memusage = combined.memory_usage(deep=True).sum()
